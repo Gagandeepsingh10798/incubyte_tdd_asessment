@@ -30,3 +30,7 @@ def test_negative_numbers_raise_exception():
     with pytest.raises(ValueError) as excinfo:
         calculator.add("1,-2,3,-4")
     assert str(excinfo.value) == "negative numbers not allowed -2,-4"
+
+def test_delimiter_of_any_length():
+    calculator = StringCalculator()
+    assert calculator.add("//[***]\n1***2***3") == 6
