@@ -1,3 +1,4 @@
+import pytest
 from calculator.string_calculator import StringCalculator
 
 def test_empty_string_returns_zero():
@@ -23,3 +24,9 @@ def test_newline_as_delimiter():
 def test_custom_delimiter():
     calculator = StringCalculator()
     assert calculator.add("//;\n1;2") == 3
+
+def test_negative_numbers_raise_exception():
+    calculator = StringCalculator()
+    with pytest.raises(ValueError) as excinfo:
+        calculator.add("1,-2,3,-4")
+    assert str(excinfo.value) == "negative numbers not allowed -2,-4"
