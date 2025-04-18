@@ -11,3 +11,7 @@ def test_single_number_returns_value():
 def test_two_numbers_returns_sum():
     calculator = StringCalculator()
     assert calculator.add("1,2") == 3
+
+def test_multiple_numbers_returns_sum():
+    calculator = StringCalculator()
+    assert calculator.add("1,2,3,4") == 10
